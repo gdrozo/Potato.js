@@ -1,0 +1,50 @@
+server component <ComponentName param1 type1 param2 type2>{
+    onRender( client (p1, p2) {
+          console.log(p1, p2)
+    })
+
+    // server code
+    fmt.println("Server code")
+    serverCode()
+
+    client function clientCode(){
+        console.log("Client code")
+    }
+
+    server function serverCode(){
+        fmt.println("Server function")
+    }
+
+    return <div>
+        <h1>Jsf Component Example</h1>
+    </div>
+}
+
+client function otherClientFunction(param){
+    console.log("Other client function")
+}
+
+client component <ClientComponent param1 param2>{
+
+    //All code runs full on the client
+    console.log("Client component rendered")
+
+    function clientCode(){
+        console.log("Client function")
+    }
+
+    return <div>
+        <h1>Client Component</h1>
+    </div>
+}
+
+static component <StaticComponent param1 type1 param2 type2>{
+
+    function staticCode(){
+        fmt.println("Static function")
+    }
+
+    return <div>
+        <h1>Static Component</h1>
+    </div>
+}
